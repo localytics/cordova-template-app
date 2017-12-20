@@ -1,0 +1,8 @@
+{
+    "LocalyticsStaticFramework": {
+        "name": "LocalyticsStaticFramework",
+        "type": "podspec",
+        "spec": "~> 4.4",
+        "count": 1
+    }
+}
