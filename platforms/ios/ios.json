@@ -7,33 +7,13 @@
     "files": {
       "config.xml": {
         "parents": {
-          "/*": [
-            {
-              "xml": "<feature name=\"LocalyticsPlugin\"><param name=\"ios-package\" value=\"LocalyticsPlugin\" /></feature>",
-              "count": 1
-            }
-          ]
+          "/*": []
         }
       }
     }
   },
-  "installed_plugins": {
-    "com.localytics.phonegap.LocalyticsPlugin": {
-      "PACKAGE_NAME": "com.localytics.sample"
-    }
-  },
+  "installed_plugins": {},
   "dependent_plugins": {},
-  "modules": [
-    {
-      "id": "com.localytics.phonegap.LocalyticsPlugin.Localytics",
-      "file": "plugins/com.localytics.phonegap.LocalyticsPlugin/www/localytics.js",
-      "pluginId": "com.localytics.phonegap.LocalyticsPlugin",
-      "clobbers": [
-        "Localytics"
-      ]
-    }
-  ],
-  "plugin_metadata": {
-    "com.localytics.phonegap.LocalyticsPlugin": "1.0.0"
-  }
+  "modules": [],
+  "plugin_metadata": {}
 }

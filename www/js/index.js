@@ -146,6 +146,11 @@ var app = {
         document.getElementById("btnGetInstallId").addEventListener("click", app.onGetInstallId);
         document.getElementById("btnGetAppKey").addEventListener("click", app.onGetAppKey);
         document.getElementById("btnGetLibraryVersion").addEventListener("click", app.onGetLibraryVersion);
+
+        //GDPR
+        document.getElementById("btnPauseUploading").addEventListener("click", app.onGDPRAction);
+        document.getElementById("btnPrivacyOptOut").addEventListener("click", app.onGDPRAction);
+        document.getElementById("btnSetCustomerIdPrivacy").addEventListener("click", app.onGDPRAction);
     },
 
     onResume: function () {
@@ -598,6 +603,29 @@ var app = {
         var eventValue = list.options[list.selectedIndex].text;
         Localytics.triggerRegion({ "uniqueId" : uniqueId }, eventValue);
         app.outputDebug(' onTriggerRegionAction: uniqueId: ' + uniqueId + ', event: ' + eventValue);
+    },
+
+    onGDPRAction: function (ev) {
+       if (ev.currentTarget) {
+           var targetId = ev.currentTarget.id;
+           if (targetId == "btnPauseUploading") {
+               var list = document.getElementById("dataPause");
+               var value = list.options[list.selectedIndex].text;
+               Localytics.pauseDataUploading(value == "Pause");
+               app.outputDebug(' The user has ' + value + ' data uploading ');
+           } else if (targetId == "btnPrivacyOptOut") {
+               var list = document.getElementById("privacyOptOut");
+               var value = list.options[list.selectedIndex].text;
+               Localytics.setPrivacyOptedOut(value == "Opt Out");
+               app.outputDebug(' The user has ' + value + ' ');
+           } else if (targetId == "btnSetCustomerIdPrivacy") {
+               var customerId = document.getElementById("inputCustomerIdPrivacy").value || null;
+               var list = document.getElementById("privacyOptOut");
+               var optedOut = list.options[list.selectedIndex].text;
+               Localytics.setCustomerIdWithPrivacyOptedOut(customerId, optedOut == "Opt Out");
+               app.outputDebug(' The user with Id ' + customerId + ' has ' + optedOut + ' ');
+           }
+       }
     },
 
     onGetInstallId: function (ev) {

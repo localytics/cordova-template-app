@@ -14,7 +14,6 @@
   "dependencies": {
     "cordova-android": "~6.3.0",
     "cordova-ios": "^4.5.4",
-    "localytics-cordova": "file:../localytics-cordova",
-    "com.localytics.phonegap.LocalyticsPlugin": "../localytics-cordova"
+    "localytics-cordova": "file:../localytics-cordova"
   }
 }

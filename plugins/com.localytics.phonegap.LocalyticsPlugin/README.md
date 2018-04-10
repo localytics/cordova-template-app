@@ -444,5 +444,6 @@ Localytics.setPushMessageConfiguration(pushConfig);
 Localytics.setPlacesMessageConfiguration(placesConfig);
 ```
 
-## SampleApp
-The Cordova app found under SampleApp demonstrates a list of functional APIs that can be called via the JavaScript interface. Update "LocalyticsAppKey" and "LOCALYTICS_APP_KEY" for their respective platforms to easily test out the calls.
+## Sample App
+
+A sample template app is available at [https://github.com/localytics/cordova-template-app](https://github.com/localytics/cordova-template-app).
