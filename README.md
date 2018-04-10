@@ -37,6 +37,6 @@ cordova run android
 First, replace `YOUR-LOCALYTICS-APP-KEY` in the following files:
 
 1. [index.js](www/js/index.js)
-2. [AndroidManifest.xml](platforms/android/AndroidManifest.xml)
+2. [localytics.xml](platforms/android/res/values/localytics.xml)
 
-And for Android, replace `YOUR_PUSH_SENDER_ID` in [AndroidManifest.xml](platforms/android/AndroidManifest.xml)
+And for Android, replace `YOUR_PUSH_SENDER_ID` in [localytics.xml](platforms/android/res/values/localytics.xml)
