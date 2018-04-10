@@ -913,7 +913,6 @@ public class LocalyticsPlugin extends CordovaPlugin {
                     Localytics.setInboxCampaignRead(campaign, read);
                     callbackContext.success();
                 } else {
-                    Log.i(LOG_TAG, "Call to setInboxCampaignRead failed; Couldn't find Inbox campaign with ID " + campaignId);
                     callbackContext.error("Campaign not cached. Couldn't find Inbox campaign with ID " + campaignId);
                 }
                 updateInboxCampaignCache();
@@ -991,15 +990,14 @@ public class LocalyticsPlugin extends CordovaPlugin {
             if (args.length() >= 2) {
                 JSONObject region = args.getJSONObject(0);
                 String event = args.getString(1);
-                Object latitude = args.opt(2);
-                Object longitude = args.opt(3);
-                if (latitude != JSONObject.NULL && longitude != JSONObject.NULL) {
-                    Location location = new Location("");
-                    location.setLatitude(Double.parseDouble((String) latitude));
-                    location.setLongitude(Double.parseDouble((String) longitude));
+                double latitude = args.optDouble(2);
+                double longitude = args.getDouble(3);
+                if (latitude != Double.NaN && longitude != Double.NaN) {
+                  Location location = new Location("");
+                  location.setLatitude(latitude);
+                  location.setLongitude(longitude);
                   Localytics.triggerRegion(toCircularRegion(region), toEvent(event), location);
                 } else {
-                    Log.i(LOG_TAG, "Call to triggerRegion couldn't find latitude and longitude values. Defaulting to null.");
                   Localytics.triggerRegion(toCircularRegion(region), toEvent(event), null);
                 }
                 callbackContext.success();
@@ -1012,15 +1010,14 @@ public class LocalyticsPlugin extends CordovaPlugin {
             if (args.length() >= 2) {
                 JSONArray regions = args.getJSONArray(0);
                 String event = args.getString(1);
-                Object latitude = args.opt(2);
-                Object longitude = args.opt(3);
-                if (latitude != JSONObject.NULL && longitude != JSONObject.NULL) {
+                double latitude = args.optDouble(2);
+                double longitude = args.getDouble(3);
+                if (latitude != Double.NaN && longitude != Double.NaN) {
                   Location location = new Location("");
-                  location.setLatitude(Double.parseDouble((String) latitude));
-                  location.setLongitude(Double.parseDouble((String) longitude));
+                  location.setLatitude(latitude);
+                  location.setLongitude(longitude);
                   Localytics.triggerRegions(toCircularRegions(regions), toEvent(event), location);
                 } else {
-                    Log.i(LOG_TAG, "Call to triggerRegions couldn't find latitude and longitude values. Defaulting to null.");
                   Localytics.triggerRegions(toCircularRegions(regions), toEvent(event), null);
                 }
                 callbackContext.success();
