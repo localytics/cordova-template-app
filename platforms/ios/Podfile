@@ -2,4 +2,5 @@
 platform :ios, '8.0'
 target 'LocalyticsSample' do
 	project 'LocalyticsSample.xcodeproj'
+	pod 'Localytics', '~> 5.1'
 end
