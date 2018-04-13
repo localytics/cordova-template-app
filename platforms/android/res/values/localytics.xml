@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Define your Localytics app key-->
-    <string name="ll_app_key" translatable="false">MY_APP_KEY</string>
+    <string name="ll_app_key" translatable="false">YOUR_LOCALYTICS_APP_KEY</string>
 
     <!-- Toggle the Localytics referral receiver which is used to attribute sessions to
     their installation source -->
@@ -12,12 +12,12 @@
     <bool name="ll_push_tracking_activity_enabled">true</bool>
 
     <!-- Specify the GCM Sender ID which will be used to register for push tokens -->
-    <string name="ll_gcm_sender_id" translatable="false">MY_GCM_SENDER_ID</string>
+    <string name="ll_gcm_sender_id" translatable="false"></string>
 
     <!-- Toggle the Localytics FirebaseInstanceIdService and FirebaseMessagingService, which handle
     incoming requests from FCM. If this value is set to true, then the app must specify the
     com.google.firebase:firebase-messaging dependency-->
-    <bool name="ll_fcm_push_services_enabled">false</bool>
+    <bool name="ll_fcm_push_services_enabled">true</bool>
 
     <!-- Toggle the Localytics LocationUpdateReceiver and BootReceiver for Places integrations
     If this value is set to true then the app must specify the
