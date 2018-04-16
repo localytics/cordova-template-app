@@ -41,6 +41,7 @@ platforms/android/local.properties
 platforms/android/CordovaLib/bin
 platforms/android/CordovaLib/gen
 platforms/android/CordovaLib/local.properties
+google-services.json
 
 # res
 resources/signing
@@ -55,4 +56,3 @@ yarn-error.log
 buck-out/
 \.buckd/
 *.keystore
-
