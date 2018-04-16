@@ -40,10 +40,11 @@ First, replace `YOUR-LOCALYTICS-APP-KEY` in the following files:
 2. [localytics.xml](platforms/android/res/values/localytics.xml)
 
 And for Android, replace `YOUR_PUSH_SENDER_ID` in [localytics.xml](platforms/android/res/values/localytics.xml)
+For FCM integrations, place your google-services.json file in the `platforms/android/` folder.
 
 ## Debugging
 
 To debug Android, open the `platform/android` directory in Android Studio.  
-To debug iOS, open `platforms/iOS/LocalyticsSample.xcworkspace` in XCode. 
+To debug iOS, open `platforms/iOS/LocalyticsSample.xcworkspace` in XCode.
 
-You can additionally edit files in the `platforms/android/src` and `platforms/android/LocalyticsSample/Plugins/com.localytics.phonegap.LocalyticsPlugin` (shown in XCode under `Plugins`) directory and they will update the wrapper (provided you added the plugin with the `--link` option).  Doing this tends to break the cordova setup though so you may need to remove and re-add the plugins afterwards. 
+You can additionally edit files in the `platforms/android/src` and `platforms/android/LocalyticsSample/Plugins/com.localytics.phonegap.LocalyticsPlugin` (shown in XCode under `Plugins`) directory and they will update the wrapper (provided you added the plugin with the `--link` option).  Doing this tends to break the cordova setup though so you may need to remove and re-add the plugins afterwards.
