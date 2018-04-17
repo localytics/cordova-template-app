@@ -44,7 +44,7 @@ var app = {
     onIntegrate: function () {
         document.addEventListener("resume", app.onResume, false);
         document.addEventListener("pause", app.onPause, false);
-        Localytics.integrate("dcdf9cb70fff87655848357-8f7e9180-385a-11e4-a3d0-009c5fda0a25");
+        Localytics.integrate("YOUR-LOCALYTICS-APP-KEY");
         Localytics.openSession();
         Localytics.upload();
 
@@ -52,7 +52,7 @@ var app = {
     },
 
     onAutoIntegrate: function () {
-        Localytics.autoIntegrate("dcdf9cb70fff87655848357-8f7e9180-385a-11e4-a3d0-009c5fda0a25");
+        Localytics.autoIntegrate("YOUR-LOCALYTICS-APP-KEY");
         Localytics.openSession();
 
         app.onIntegrationComplete();
