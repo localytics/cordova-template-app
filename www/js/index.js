@@ -44,11 +44,15 @@ var app = {
     onIntegrate: function () {
         document.addEventListener("resume", app.onResume, false);
         document.addEventListener("pause", app.onPause, false);
+<<<<<<< HEAD
         var options = { "ll_wifi_upload_interval_seconds": 5,
             "ll_great_network_upload_interval_seconds": 10,
             "ll_decent_network_upload_interval_seconds": 30,
             "ll_bad_network_upload_interval_seconds": 90 }
         Localytics.integrate("YOUR-LOCALYTICS-APP-KEY", options);
+=======
+        Localytics.integrate("YOUR-LOCALYTICS-APP-KEY");
+>>>>>>> Fix indentation and generify app key
         Localytics.openSession();
         Localytics.upload();
 
@@ -56,11 +60,15 @@ var app = {
     },
 
     onAutoIntegrate: function () {
+<<<<<<< HEAD
         var options = { "ll_wifi_upload_interval_seconds": 5,
             "ll_great_network_upload_interval_seconds": 10,
             "ll_decent_network_upload_interval_seconds": 30,
             "ll_bad_network_upload_interval_seconds": 90 }
         Localytics.autoIntegrate("YOUR-LOCALYTICS-APP-KEY", options);
+=======
+        Localytics.autoIntegrate("YOUR-LOCALYTICS-APP-KEY");
+>>>>>>> Fix indentation and generify app key
         Localytics.openSession();
 
         app.onIntegrationComplete();
