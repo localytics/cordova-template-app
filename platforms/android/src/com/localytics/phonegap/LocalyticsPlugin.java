@@ -1,0 +1,1 @@
+../../../../../../../localytics-cordova/src/android/LocalyticsPlugin.java
