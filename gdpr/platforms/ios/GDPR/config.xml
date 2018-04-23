@@ -19,9 +19,6 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="LocalyticsPlugin">
-        <param name="ios-package" value="LocalyticsPlugin" />
-    </feature>
     <name>GDPR</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -39,6 +36,7 @@
     <allow-intent href="geo:*" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
+    <allow-navigation href="*" /> 
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="false" />
@@ -52,4 +50,7 @@
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
+    <feature name="LocalyticsPlugin">
+        <param name="ios-package" value="LocalyticsPlugin" />
+    </feature>
 </widget>

@@ -283,7 +283,9 @@ static NSDictionary *launchOptions;
         @"thumbnailUrl": [campaign.thumbnailUrl absoluteString] ?: [NSNull null],
         @"hasCreative": @(campaign.hasCreative),
         @"sortOrder": @(campaign.sortOrder),
-        @"receivedDate": @(campaign.receivedDate)
+        @"receivedDate": @(campaign.receivedDate),
+        @"deeplink": campaign.deepLinkURL,
+        @"isPushToInboxCampaign": @(campaign.isPushToInboxCampaign)
     };
 }
 
@@ -1100,8 +1102,12 @@ static NSDictionary *launchOptions;
 
 - (void)setInAppMessageDismissButtonHidden:(CDVInvokedUrlCommand *)command {
     [self logInput:@"setInAppMessageDismissButtonHidden" withCommand:command];
-    BOOL hidden = [[command argumentAtIndex:0] boolValue];
-    [Localytics setInAppMessageDismissButtonHidden:hidden];
+    NSNumber *hidden = [command argumentAtIndex:0];
+    if ([hidden isKindOfClass:[NSNumber class]]) {
+        [Localytics setInAppMessageDismissButtonHidden:[hidden boolValue]];
+    } else {
+        NSLog(@"Localytics Cordova wrapper received bad input in call to setInAppMessageDismissButtonHidden; Enabled is of wrong type.");
+    }
 }
 
 - (void)setInAppMessageDismissButtonLocation:(CDVInvokedUrlCommand *)command {
@@ -1395,7 +1401,7 @@ static NSDictionary *launchOptions;
           [Localytics triggerRegions:[self regionsFromDictionaryArray:regions] withEvent:[self eventFrom:event] atLocation:nil];
         }
     } else {
-        NSLog(@"Localytics Cordova wrapper couldn't determine a location for call to triggerRegions. expected 2 or 4 arguments");
+        NSLog(@"Localytics Cordova wrapper received bad input for call to triggerRegions. expected 2 or 4 arguments");
     }
 }
 

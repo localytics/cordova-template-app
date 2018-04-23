@@ -51,6 +51,7 @@ google-services.json
 #
 npm-debug.log
 yarn-error.log
+node_modules/
 
 # BUCK
 buck-out/
