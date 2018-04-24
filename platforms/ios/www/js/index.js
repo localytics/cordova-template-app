@@ -48,7 +48,7 @@ var app = {
             "ll_great_network_upload_interval_seconds": 10,
             "ll_decent_network_upload_interval_seconds": 30,
             "ll_bad_network_upload_interval_seconds": 90 }
-        Localytics.integrate("977e844f5a33e2d198849bb-091fca20-aeaf-11e3-1c46-004a77f8b47f", options);
+        Localytics.integrate("YOUR-LOCALYTICS-APP-KEY", options);
         Localytics.openSession();
         Localytics.upload();
 
@@ -60,7 +60,7 @@ var app = {
             "ll_great_network_upload_interval_seconds": 10,
             "ll_decent_network_upload_interval_seconds": 30,
             "ll_bad_network_upload_interval_seconds": 90 }
-        Localytics.autoIntegrate("977e844f5a33e2d198849bb-091fca20-aeaf-11e3-1c46-004a77f8b47f", options);
+        Localytics.autoIntegrate("YOUR-LOCALYTICS-APP-KEY", options);
         Localytics.openSession();
 
         app.onIntegrationComplete();
