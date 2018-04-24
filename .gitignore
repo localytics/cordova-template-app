@@ -21,6 +21,11 @@ DerivedData
 *.ipa
 *.xcuserstate
 *.xcarchive
+platforms/ios/build/
+platforms/ios/www/
+platforms/ios/cordova/console.log
+platforms/ios/Pods/
+*.xcuserdatad
 
 # Android/IntelliJ
 #
@@ -29,6 +34,18 @@ build/
 .gradle
 local.properties
 *.iml
+platforms/android/assets/www
+platforms/android/bin
+platforms/android/gen
+platforms/android/local.properties
+platforms/android/CordovaLib/bin
+platforms/android/CordovaLib/gen
+platforms/android/CordovaLib/local.properties
+google-services.json
+
+# res
+resources/signing
+plugins/
 
 # node.js
 #
@@ -39,4 +56,3 @@ yarn-error.log
 buck-out/
 \.buckd/
 *.keystore
-

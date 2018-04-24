@@ -10,7 +10,7 @@
           "/*": [
             {
               "xml": "<feature name=\"LocalyticsPlugin\"><param name=\"ios-package\" value=\"LocalyticsPlugin\" /></feature>",
-              "count": 1
+              "count": 3
             }
           ]
         }

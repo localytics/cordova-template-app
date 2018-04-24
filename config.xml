@@ -31,5 +31,5 @@
     </platform>
     <engine name="android" spec="~6.3.0" />
     <engine name="ios" spec="^4.5.4" />
-    <plugin name="com.localytics.phonegap.LocalyticsPlugin" spec="../localytics-cordova" />
+    <plugin name="com.localytics.phonegap.LocalyticsPlugin" spec="~1.0.0" />
 </widget>

@@ -27,13 +27,38 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+@import UserNotifications;
+@import Localytics;
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     self.viewController = [[MainViewController alloc] init];
+    if (NSClassFromString(@"UNUserNotificationCenter")) {
+        UNAuthorizationOptions options = (UNAuthorizationOptionBadge | UNAuthorizationOptionSound |UNAuthorizationOptionAlert);
+        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:options
+                                                                            completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                                                                                [Localytics didRequestUserNotificationAuthorizationWithOptions:options
+                                                                                                                                       granted:granted];
+                                                                            }];
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    } else {
+        UIUserNotificationType types = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (void) userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+    [Localytics didReceiveNotificationResponseWithUserInfo:response.notification.request.content.userInfo];
+    completionHandler();
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
 }
 
 @end

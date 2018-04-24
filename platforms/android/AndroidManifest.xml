@@ -8,37 +8,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <data android:scheme="ampYOUR-LOCALYTICS-APP-KEY" />
+                <data android:scheme="ampYOUR_LOCALYTICS_APP_KEY" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.localytics.sample" />
-            </intent-filter>
-        </receiver>
-        <service android:exported="false" android:name="com.localytics.android.GcmListenerService">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </service>
-        <service android:exported="false" android:name="com.localytics.android.InstanceIDListenerService">
-            <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID" />
-            </intent-filter>
-        </service>
-        <service android:exported="true" android:name="com.localytics.android.BackgroundService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
-            <intent-filter>
-                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
-            </intent-filter>
-        </service>
-        <activity android:name="com.localytics.android.PushTrackingActivity" />
-        <meta-data android:name="com.localytics.android_push_sender_id" android:value="\ YOUR_PUSH_SENDER_ID" />
     </application>
-    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="26" />
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="26" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <permission android:name="com.localytics.sample.permission.C2D_MESSAGE" android:protectionLevel="signature" />
     <uses-permission android:name="com.localytics.sample.permission.C2D_MESSAGE" />

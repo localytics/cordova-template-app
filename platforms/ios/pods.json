@@ -1,8 +1,8 @@
 {
-    "LocalyticsStaticFramework": {
-        "name": "LocalyticsStaticFramework",
+    "Localytics": {
+        "name": "Localytics",
         "type": "podspec",
-        "spec": "~> 4.4",
-        "count": 1
+        "spec": "~> 5.1",
+        "count": 3
     }
 }

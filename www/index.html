@@ -35,7 +35,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Localytics Test</title>
     </head>
-    <body>
+    <div>
         <div class="app">
             <h1>Localytics Debug</h1>
 
@@ -168,30 +168,30 @@
 
 
             <div class="label">User Info (Set)</div>
-                key: <input id="inputIdentifierKey" type="text" value="key1" style="width:40px">
-                value: <input id="inputIdentifierValue" type="text" value="value1" style="width:40px">
-                <button id="btnSetIdentifier" class="localytics_button set_identifier">Set Identifier</button>
-                <hr class="hr_break">
+            key: <input id="inputIdentifierKey" type="text" value="key1" style="width:40px">
+            value: <input id="inputIdentifierValue" type="text" value="value1" style="width:40px">
+            <button id="btnSetIdentifier" class="localytics_button set_identifier">Set Identifier</button>
+            <hr class="hr_break">
 
-                <input id="inputCustomerId" type="text" value="customerId">
-                <button id="btnSetCustomerId" class="localytics_button set_identifier">Set Customer Id</button>
-                <hr class="hr_break">
-                <input id="inputCustomerFullName" type="text" value="full name">
-                <button id="btnSetCustomerFullName" class="localytics_button set_customer_full_name">Set Customer Full</button>
-                <hr class="hr_break">
-                <input id="inputCustomerFirstName" type="text" value="firstName">
-                <button id="btnSetCustomerFirstName" class="localytics_button set_customer_first_name">Set Customer First</button>
-                <hr class="hr_break">
-                <input id="inputCustomerLastName" type="text" value="lastName">
-                <button id="btnSetCustomerLastName" class="localytics_button set_customer_last_name">Set Customer Last</button>
-                <hr class="hr_break">
-                <input id="inputCustomerEmail" type="text" value="customer@email.com">
-                <button id="btnSetCustomerEmail" class="localytics_button set_customer_email">Set Customer Email</button>
-                <hr class="hr_break">
-                lat: <input id="inputLocationLatitude" type="number" value="49.15" style="width:40px">
-                long: <input id="inputLocationLongitude" type="number" value="123.06" style="width:40px">
-                <button id="btnSetLocation" class="localytics_button set_location">Set Location</button>
-                <hr class="hr_break">
+            <input id="inputCustomerId" type="text" value="customerId">
+            <button id="btnSetCustomerId" class="localytics_button set_identifier">Set Customer Id</button>
+            <hr class="hr_break">
+            <input id="inputCustomerFullName" type="text" value="full name">
+            <button id="btnSetCustomerFullName" class="localytics_button set_customer_full_name">Set Customer Full</button>
+            <hr class="hr_break">
+            <input id="inputCustomerFirstName" type="text" value="firstName">
+            <button id="btnSetCustomerFirstName" class="localytics_button set_customer_first_name">Set Customer First</button>
+            <hr class="hr_break">
+            <input id="inputCustomerLastName" type="text" value="lastName">
+            <button id="btnSetCustomerLastName" class="localytics_button set_customer_last_name">Set Customer Last</button>
+            <hr class="hr_break">
+            <input id="inputCustomerEmail" type="text" value="customer@email.com">
+            <button id="btnSetCustomerEmail" class="localytics_button set_customer_email">Set Customer Email</button>
+            <hr class="hr_break">
+            lat: <input id="inputLocationLatitude" type="number" value="49.15" style="width:40px">
+            long: <input id="inputLocationLongitude" type="number" value="123.06" style="width:40px">
+            <button id="btnSetLocation" class="localytics_button set_location">Set Location</button>
+            <hr class="hr_break">
             <br><br>
 
             <div class="label">User Info (Get)</div>
@@ -355,6 +355,26 @@
                 Library Ver.: <input id="outputLibraryVersion" type="text" value="" readonly><br>
                 <button id="btnGetLibraryVersion" class="localytics_button get_library_version">Get</button>
                 <hr class="hr_break">
+            <br><br>
+                <div class="label">GDPR</div>
+                Data Pausing:
+                <select id="dataPause">
+                    <option value="0">Resume</option>
+                    <option value="1">Pause</option>
+                </select>
+                <button id="btnPauseUploading" class="localytics_button set_logging_enabled">Set</button>
+                <hr class="hr_break">
+                Privacy Opt Out:
+                <select id="privacyOptOut">
+                    <option value="0">Opt Out</option>
+                    <option value="1">Opt In</option>
+                </select>
+                <br>
+                Customer ID: <input id="inputCustomerIdPrivacy" type="text" value="customerId">
+                <br>
+                <button id="btnPrivacyOptOut" class="localytics_button set_logging_enabled">Set Opt Out</button>
+                <button id="btnSetCustomerIdPrivacy" class="localytics_button set_identifier">Set Customer Id and Opt out</button>
+            </div>
             <br><br>
 
             </div>
