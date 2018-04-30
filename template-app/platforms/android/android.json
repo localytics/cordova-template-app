@@ -10,7 +10,7 @@
           "/*": [
             {
               "xml": "<feature name=\"LocalyticsPlugin\"><param name=\"android-package\" value=\"com.localytics.phonegap.LocalyticsPlugin\" /></feature>",
-              "count": 2
+              "count": 1
             }
           ]
         }

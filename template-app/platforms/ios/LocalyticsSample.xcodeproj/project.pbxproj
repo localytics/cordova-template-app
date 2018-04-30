@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -13,15 +12,15 @@
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
-		3B730A5F90B14C6ABFB4F967 /* CDMessagingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE12A925C63F43B2B6D46300 /* CDMessagingDelegate.m */; };
-		46FC6FDAA65F443F83DE0CF1 /* UserNotifications in Frameworks */ = {isa = PBXBuildFile; fileRef = 1608F1FBBDC7437584A4E3A7 /* UserNotifications */; };
-		690B38102DA4407498ED7421 /* CDAnalyticsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E3AF1EE7848C4A0A8A241 /* CDAnalyticsDelegate.m */; };
-		6932C85408F241AFB169CDFD /* CDLocationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C0792A08E49178CC5208D /* CDLocationDelegate.m */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
 		816C1E7E1FFE7EF3009A61DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816C1E7D1FFE7EF3009A61DD /* LaunchScreen.storyboard */; };
 		A987AAB1208DF21D0064EB1C /* www in Resources */ = {isa = PBXBuildFile; fileRef = EB87FDF31871DA8E0020F90C /* www */; };
-		B854350ADF2B418DB8937DF7 /* LocalyticsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5A115AD7724928B498E00B /* LocalyticsPlugin.m */; };
 		E1BD775BA44FA3FAF8F3FE9B /* libPods-LocalyticsSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF46C9D3C277F3E8A91AE716 /* libPods-LocalyticsSample.a */; };
+		D7ECEA1B4BFC45FF82B92C2A /* LocalyticsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EE78AD404B4C6383013CCB /* LocalyticsPlugin.m */; };
+		28319DA6625B498A8B652B39 /* CDAnalyticsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645ADA0652747C5A03D11C1 /* CDAnalyticsDelegate.m */; };
+		614B9BE1EAA746348163B4D2 /* CDLocationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7670C465D4AB4F58BF8E8914 /* CDLocationDelegate.m */; };
+		5905E370B0564E988D3AD3E4 /* CDMessagingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CA2C95DE474AF4B079614C /* CDMessagingDelegate.m */; };
+		EC172FC21EE541EFA0D30858 /* UserNotifications in Resources */ = {isa = PBXBuildFile; fileRef = 4CBFB38C976B43BF964B8377 /* UserNotifications */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +49,9 @@
 
 /* Begin PBXFileReference section */
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = LocalyticsSample/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		083D5CA0C96042D4A23691A8 /* LocalyticsPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = LocalyticsPlugin.h; path = com.localytics.phonegap.LocalyticsPlugin/LocalyticsPlugin.h; sourceTree = "<group>"; };
-		1608F1FBBDC7437584A4E3A7 /* UserNotifications */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = UserNotifications; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* LocalyticsSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalyticsSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		240F3494788F4B40B02B430E /* CDLocationDelegate.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDLocationDelegate.m; path = com.localytics.phonegap.LocalyticsPlugin/CDLocationDelegate.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
@@ -66,21 +62,23 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* LocalyticsSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LocalyticsSample-Prefix.pch"; sourceTree = "<group>"; };
-		4A5E3AF1EE7848C4A0A8A241 /* CDAnalyticsDelegate.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDAnalyticsDelegate.m; path = com.localytics.phonegap.LocalyticsPlugin/CDAnalyticsDelegate.m; sourceTree = "<group>"; };
-		5C5C0792A08E49178CC5208D /* CDLocationDelegate.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDLocationDelegate.m; path = com.localytics.phonegap.LocalyticsPlugin/CDLocationDelegate.m; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = LocalyticsSample/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		816C1E7D1FFE7EF3009A61DD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = LocalyticsSample/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
-		86F6728690AA43A48B89DE8A /* CDLocationDelegate.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDLocationDelegate.h; path = com.localytics.phonegap.LocalyticsPlugin/CDLocationDelegate.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* LocalyticsSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LocalyticsSample-Info.plist"; path = "LocalyticsSample/LocalyticsSample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
-		95763ECD31AD48C8B42FC2DE /* CDAnalyticsDelegate.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDAnalyticsDelegate.h; path = com.localytics.phonegap.LocalyticsPlugin/CDAnalyticsDelegate.h; sourceTree = "<group>"; };
-		AE12A925C63F43B2B6D46300 /* CDMessagingDelegate.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDMessagingDelegate.m; path = com.localytics.phonegap.LocalyticsPlugin/CDMessagingDelegate.m; sourceTree = "<group>"; };
-		BFE0747FE57A42999076AD94 /* CDMessagingDelegate.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDMessagingDelegate.h; path = com.localytics.phonegap.LocalyticsPlugin/CDMessagingDelegate.h; sourceTree = "<group>"; };
 		CF46C9D3C277F3E8A91AE716 /* libPods-LocalyticsSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocalyticsSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = LocalyticsSample/config.xml; sourceTree = "<group>"; };
-		FC5A115AD7724928B498E00B /* LocalyticsPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = LocalyticsPlugin.m; path = com.localytics.phonegap.LocalyticsPlugin/LocalyticsPlugin.m; sourceTree = "<group>"; };
+		A5EE78AD404B4C6383013CCB /* LocalyticsPlugin.m */ = {isa = PBXFileReference; name = "LocalyticsPlugin.m"; path = "com.localytics.phonegap.LocalyticsPlugin/LocalyticsPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		9645ADA0652747C5A03D11C1 /* CDAnalyticsDelegate.m */ = {isa = PBXFileReference; name = "CDAnalyticsDelegate.m"; path = "com.localytics.phonegap.LocalyticsPlugin/CDAnalyticsDelegate.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		7670C465D4AB4F58BF8E8914 /* CDLocationDelegate.m */ = {isa = PBXFileReference; name = "CDLocationDelegate.m"; path = "com.localytics.phonegap.LocalyticsPlugin/CDLocationDelegate.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		82CA2C95DE474AF4B079614C /* CDMessagingDelegate.m */ = {isa = PBXFileReference; name = "CDMessagingDelegate.m"; path = "com.localytics.phonegap.LocalyticsPlugin/CDMessagingDelegate.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		A428FE748740404CB8D1735D /* LocalyticsPlugin.h */ = {isa = PBXFileReference; name = "LocalyticsPlugin.h"; path = "com.localytics.phonegap.LocalyticsPlugin/LocalyticsPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		76127EFD36C3456094396900 /* CDAnalyticsDelegate.h */ = {isa = PBXFileReference; name = "CDAnalyticsDelegate.h"; path = "com.localytics.phonegap.LocalyticsPlugin/CDAnalyticsDelegate.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		6C554D299F9F4CD39B22327B /* CDLocationDelegate.h */ = {isa = PBXFileReference; name = "CDLocationDelegate.h"; path = "com.localytics.phonegap.LocalyticsPlugin/CDLocationDelegate.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		D8B0E8EF1D824CBEB269F642 /* CDMessagingDelegate.h */ = {isa = PBXFileReference; name = "CDMessagingDelegate.h"; path = "com.localytics.phonegap.LocalyticsPlugin/CDMessagingDelegate.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		4CBFB38C976B43BF964B8377 /* UserNotifications */ = {isa = PBXFileReference; name = "UserNotifications"; path = "UserNotifications"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +89,7 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				E1BD775BA44FA3FAF8F3FE9B /* libPods-LocalyticsSample.a in Frameworks */,
 				46FC6FDAA65F443F83DE0CF1 /* UserNotifications in Frameworks */,
+				EC172FC21EE541EFA0D30858 /* UserNotifications in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				CF46C9D3C277F3E8A91AE716 /* libPods-LocalyticsSample.a */,
-				1608F1FBBDC7437584A4E3A7 /* UserNotifications */,
+				4CBFB38C976B43BF964B8377 /* UserNotifications */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -191,14 +190,14 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				FC5A115AD7724928B498E00B /* LocalyticsPlugin.m */,
-				4A5E3AF1EE7848C4A0A8A241 /* CDAnalyticsDelegate.m */,
-				5C5C0792A08E49178CC5208D /* CDLocationDelegate.m */,
-				AE12A925C63F43B2B6D46300 /* CDMessagingDelegate.m */,
-				083D5CA0C96042D4A23691A8 /* LocalyticsPlugin.h */,
-				95763ECD31AD48C8B42FC2DE /* CDAnalyticsDelegate.h */,
-				86F6728690AA43A48B89DE8A /* CDLocationDelegate.h */,
-				BFE0747FE57A42999076AD94 /* CDMessagingDelegate.h */,
+				A5EE78AD404B4C6383013CCB /* LocalyticsPlugin.m */,
+				9645ADA0652747C5A03D11C1 /* CDAnalyticsDelegate.m */,
+				7670C465D4AB4F58BF8E8914 /* CDLocationDelegate.m */,
+				82CA2C95DE474AF4B079614C /* CDMessagingDelegate.m */,
+				A428FE748740404CB8D1735D /* LocalyticsPlugin.h */,
+				76127EFD36C3456094396900 /* CDAnalyticsDelegate.h */,
+				6C554D299F9F4CD39B22327B /* CDLocationDelegate.h */,
+				D8B0E8EF1D824CBEB269F642 /* CDMessagingDelegate.h */,
 			);
 			name = Plugins;
 			path = LocalyticsSample/Plugins;
@@ -379,10 +378,10 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				B854350ADF2B418DB8937DF7 /* LocalyticsPlugin.m in Sources */,
-				690B38102DA4407498ED7421 /* CDAnalyticsDelegate.m in Sources */,
-				6932C85408F241AFB169CDFD /* CDLocationDelegate.m in Sources */,
-				3B730A5F90B14C6ABFB4F967 /* CDMessagingDelegate.m in Sources */,
+				D7ECEA1B4BFC45FF82B92C2A /* LocalyticsPlugin.m in Sources */,
+				28319DA6625B498A8B652B39 /* CDAnalyticsDelegate.m in Sources */,
+				614B9BE1EAA746348163B4D2 /* CDLocationDelegate.m in Sources */,
+				5905E370B0564E988D3AD3E4 /* CDMessagingDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
