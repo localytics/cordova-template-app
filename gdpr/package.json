@@ -13,7 +13,7 @@
         "cordova-android": "^7.0.0",
         "cordova-ios": "^4.5.4",
         "cordova-plugin-whitelist": "^1.3.3",
-        "localytics-cordova": "file:../../localytics-cordova"
+        "localytics-cordova": "^5.1.0"
     },
     "cordova": {
         "plugins": {
