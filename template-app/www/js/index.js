@@ -22,25 +22,38 @@ var app = {
 
     // Application Constructor
     initialize: function() {
-        this.bindEvents();
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
-    // Bind Event Listeners
+
+    // deviceready Event Handler
     //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
+    onDeviceReady: function() {
+        app.outputDebug(' onDeviceReady Begin');
+        this.receivedEvent('deviceready');
+        app.outputDebug(' onDeviceReady event processed');
+
+        Localytics.setLoggingEnabled(true);
+        app.outputDebug(' onDeviceReady End');
     },
 
-    onDeviceReady: function() {
-        Localytics.setLoggingEnabled(true);
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+       // var parentElement = document.getElementById(id);
+       // var listeningElement = parentElement.querySelector('.listening');
+       // var receivedElement = parentElement.querySelector('.received');
 
+       // listeningElement.setAttribute('style', 'display:none;');  receivedElement.setAttribute('style', 'display:block;');
+        app.outputDebug('Received Event: ' + id);
         document.getElementById("btnIntegrate").addEventListener("click", app.onIntegrate);
         document.getElementById("btnAutoIntegrate").addEventListener("click", app.onAutoIntegrate);
-
-        app.outputDebug(' onDeviceReady ');
+        
+        app.setupListeners();
     },
-
+    //ios
+    appKeyIOS : "977e844f5a33e2d198849bb-091fca20-aeaf-11e3-1c46-004a77f8b47f",
+    appKey : "f737ce58a68aea90b4c79fc-0bc951b0-b42b-11e3-429f-00a426b17dd8",
     onIntegrate: function () {
         document.addEventListener("resume", app.onResume, false);
         document.addEventListener("pause", app.onPause, false);
@@ -48,7 +61,9 @@ var app = {
             "ll_great_network_upload_interval_seconds": 10,
             "ll_decent_network_upload_interval_seconds": 30,
             "ll_bad_network_upload_interval_seconds": 90 }
-        Localytics.integrate("YOUR-LOCALYTICS-APP-KEY", options);
+        Localytics.setOption("ll_app_key", app.appKey);
+        // The below call doesnt work on android
+        Localytics.integrate(app.appKey, options);
         Localytics.openSession();
         Localytics.upload();
 
@@ -60,16 +75,18 @@ var app = {
             "ll_great_network_upload_interval_seconds": 10,
             "ll_decent_network_upload_interval_seconds": 30,
             "ll_bad_network_upload_interval_seconds": 90 }
-        Localytics.autoIntegrate("YOUR-LOCALYTICS-APP-KEY", options);
+        Localytics.setOption("ll_app_key", app.appKey);
+        // The below call doesnt work on android
+        Localytics.autoIntegrate(app.appKey, options);
         Localytics.openSession();
 
         app.onIntegrationComplete();
     },
 
     onIntegrationComplete: function() {
-        document.getElementById("integrationContainer").style["display"] = "none"
+//        alert("Integration Complete");
+//        document.getElementById("integrationContainer").style["display"] = "none"
         document.getElementById("controlContainer").style["display"] = ""
-        app.setupListeners();
     },
 
     setupListeners: function() {
@@ -682,6 +699,7 @@ var app = {
             console.log("************** " +message+" **************");
         }
     },
+
 };
 
 app.initialize();

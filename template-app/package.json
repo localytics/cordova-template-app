@@ -1,17 +1,28 @@
 {
-  "name": "com.localytics.sample",
-  "version": "0.0.1",
-  "displayName": "LocalyticsSample",
-  "cordova": {
-    "platforms": [
-      "android",
-      "ios"
-    ],
-    "plugins": {}
-  },
-  "dependencies": {
-    "cordova-android": "~6.3.0",
-    "cordova-ios": "^4.5.4",
-    "localytics-cordova": "^5.1.0"
-  }
+    "name": "com.localytics.sample",
+    "displayName": "LocalyticsSample",
+    "version": "1.0.0",
+    "description": "A sample Apache Cordova application that integrates localytics cordova SDK.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Apache Cordova Team",
+    "license": "Apache-2.0",
+    "cordova": {
+        "platforms": [
+            "ios",
+            "android"
+        ],
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "com.localytics.phonegap.LocalyticsPlugin": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "^7.0.0",
+        "cordova-ios": "^4.5.4",
+        "cordova-plugin-whitelist": "^1.3.3",
+        "localytics-cordova": "file:../../localytics-cordova"
+    }
 }

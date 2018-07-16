@@ -18,6 +18,9 @@
     }
   },
   "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.localytics.sample"
+    },
     "com.localytics.phonegap.LocalyticsPlugin": {
       "PACKAGE_NAME": "com.localytics.sample"
     }
@@ -34,6 +37,7 @@
     }
   ],
   "plugin_metadata": {
-    "com.localytics.phonegap.LocalyticsPlugin": "1.0.0"
+    "cordova-plugin-whitelist": "1.3.3",
+    "com.localytics.phonegap.LocalyticsPlugin": "5.2.0"
   }
 }

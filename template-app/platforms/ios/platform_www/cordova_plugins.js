@@ -12,7 +12,8 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "com.localytics.phonegap.LocalyticsPlugin": "1.0.0"
+  "cordova-plugin-whitelist": "1.3.3",
+  "com.localytics.phonegap.LocalyticsPlugin": "5.2.0"
 };
 // BOTTOM OF METADATA
 });

@@ -22,6 +22,7 @@ DerivedData
 *.xcuserstate
 *.xcarchive
 */platforms/ios/build/
+*/platforms/ios/cordova/build
 */platforms/ios/www/
 */platforms/ios/cordova/console.log
 */platforms/ios/Pods/
@@ -36,16 +37,19 @@ local.properties
 *.iml
 google-services.json
 */platforms/android/assets/www
+*/platforms/android/app/src/main/assets/www
 */platforms/android/bin
 */platforms/android/gen
 */platforms/android/local.properties
 */platforms/android/CordovaLib/bin
 */platforms/android/CordovaLib/gen
 */platforms/android/CordovaLib/local.properties
+*/platforms/android/cordova/build
 
 # res
 */resources/signing
 */plugins/
+*/Plugins/
 
 # node.js
 #
