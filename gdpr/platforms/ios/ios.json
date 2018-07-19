@@ -1,0 +1,43 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"LocalyticsPlugin\"><param name=\"ios-package\" value=\"LocalyticsPlugin\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.localytics.gdpr"
+    },
+    "com.localytics.phonegap.LocalyticsPlugin": {
+      "PACKAGE_NAME": "com.localytics.gdpr"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "com.localytics.phonegap.LocalyticsPlugin.Localytics",
+      "file": "plugins/com.localytics.phonegap.LocalyticsPlugin/www/localytics.js",
+      "pluginId": "com.localytics.phonegap.LocalyticsPlugin",
+      "clobbers": [
+        "Localytics"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-whitelist": "1.3.3",
+    "com.localytics.phonegap.LocalyticsPlugin": "1.0.0"
+  }
+}
