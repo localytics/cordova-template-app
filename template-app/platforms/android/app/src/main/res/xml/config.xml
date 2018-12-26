@@ -4,6 +4,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="LocalyticsPlugin">
+        <param name="android-package" value="com.localytics.phonegap.LocalyticsPlugin" />
+    </feature>
     <name>LocalyticsSample</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -26,7 +29,4 @@
     <preference name="android-minSdkVersion" value="17" />
     <preference name="android-targetSdkVersion" value="27" />
     <preference name="android-compileSdkVersion" value="27" />
-    <feature name="LocalyticsPlugin">
-        <param name="android-package" value="com.localytics.phonegap.LocalyticsPlugin" />
-    </feature>
 </widget>

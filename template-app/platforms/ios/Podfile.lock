@@ -1,16 +1,16 @@
 PODS:
-  - Localytics (5.2.0)
+  - Localytics (5.4.0)
 
 DEPENDENCIES:
-  - Localytics (~> 5.2)
+  - Localytics (~> 5.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Localytics
 
 SPEC CHECKSUMS:
-  Localytics: c11e3dc01f8481ef01fa92a265de7c71124572cd
+  Localytics: 578987f2f1d5cbc66719255b88c590430e5680dd
 
-PODFILE CHECKSUM: 8645d5c0fe78682869b1b3f44355dea335c3552f
+PODFILE CHECKSUM: 03126ae5cfbf9dd5f6ab258b4e764dcc82f34d8c
 
 COCOAPODS: 1.5.3

@@ -35,6 +35,7 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     self.viewController = [[MainViewController alloc] init];
+    [Localytics autoIntegrate:@"977e844f5a33e2d198849bb-091fca20-aeaf-11e3-1c46-004a77f8b47f" withLocalyticsOptions:nil launchOptions:launchOptions];
     if (NSClassFromString(@"UNUserNotificationCenter")) {
         UNAuthorizationOptions options = (UNAuthorizationOptionBadge | UNAuthorizationOptionSound |UNAuthorizationOptionAlert);
         [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:options

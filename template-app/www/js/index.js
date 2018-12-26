@@ -85,7 +85,7 @@ var app = {
 
     onIntegrationComplete: function() {
 //        alert("Integration Complete");
-//        document.getElementById("integrationContainer").style["display"] = "none"
+        document.getElementById("integrationContainer").style["display"] = "none"
         document.getElementById("controlContainer").style["display"] = ""
     },
 
