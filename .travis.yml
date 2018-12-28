@@ -1,0 +1,18 @@
+language: objective-c
+branches:
+  only:
+  - master
+  - develop
+  - "/release\\/.+/"
+cache: cocoapods
+osx_image: xcode10.1
+before_install:
+- gem install cocoapods
+- gem install xcpretty
+- npm install -g cordova
+script:
+- chmod a+x ./bin/test
+- ./bin/test
+env:
+  matrix:
+  - TEST=ios

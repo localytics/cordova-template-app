@@ -1,12 +1,1 @@
-repositories {
-    maven {
-        url 'https://maven.localytics.com/public'
-    }
-}
-
-dependencies {
-    compile 'com.android.support:support-v4:26.0.2'
-    compile 'com.google.android.gms:play-services-ads:11.4.2'
-    compile 'com.google.android.gms:play-services-gcm:11.4.2'
-    compile 'com.localytics.android:library:5.2.1'
-}
+../../../../../localytics-cordova/src/android/plugin.gradle

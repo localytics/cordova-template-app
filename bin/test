@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+mkdir ~/.ssh
+echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+cd ..
+yes | git clone git@github.com:localytics/localytics-cordova.git
+ls 
+cd cordova-template-app
+cd template-app
+npm --version
+cordova -version
+cordova platform ls
+cordova plugin ls
+cordova platform rm ios
+cordova platform add ios
+cd platforms/ios 
+xcodebuild -workspace LocalyticsSample.xcworkspace -scheme LocalyticsSample -sdk iphonesimulator12.1
