@@ -2,7 +2,7 @@
 mkdir ~/.ssh
 echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 cd ..
-yes | git clone git@github.com:localytics/localytics-cordova.git
+git clone git@github.com:localytics/localytics-cordova.git
 ls 
 cd cordova-template-app
 cd template-app
