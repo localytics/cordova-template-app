@@ -1,18 +1,51 @@
-language: objective-c
 branches:
   only:
   - master
   - develop
   - "/release\\/.+/"
-cache: cocoapods
-osx_image: xcode10.1
-before_install:
-- gem install cocoapods
-- gem install xcpretty
-- npm install -g cordova
-script:
-- chmod a+x ./bin/test
-- ./bin/test
-env:
-  matrix:
-  - TEST=ios
+matrix:
+  include:
+     - language: objective-c
+       cache: cocoapods
+       osx_image: xcode10.1
+       before_install:
+       - gem install cocoapods
+       - gem install xcpretty
+       - npm install -g cordova
+       script:
+       - chmod a+x ./bin/test
+       - ./bin/test ios
+
+     - language: android
+       cache: false
+       dist: trusty
+       jdk: oraclejdk8
+       android:
+         components:
+           - tools
+           - platform-tools
+           - build-tools-$ANDROID_BUILD_TOOLS
+           - build-tools-25
+           - android-$ANDROID_API # SDK API
+           - extra-google-google_play_services
+           - extra-google-m2repository
+           - extra-android-m2repository
+         licenses:
+           - 'android-sdk-license-.+'
+           - 'google-gdk-license-.+'
+       before_install:
+         - echo 'count=0' > /home/travis/.android/repositories.cfg # Avoid harmless sdkmanager warning
+         # Install SDK license so Android Gradle plugin can install deps.
+         - mkdir "$ANDROID_HOME/licenses" || true
+         - echo "" >> gradle.properties
+         - echo "NEXUS_USERNAME=[secure]" >> gradle.properties
+         - echo "NEXUS_PASSWORD=[secure]" >> gradle.properties
+         - echo "d56f5187479451eabf01fb78af6dfcb131a6481e" >> "$ANDROID_HOME/licenses/android-sdk-license"
+         - echo "y" | sdkmanager emulator
+         -  rm -rf ~/.android/avd/
+         - echo "y" | sdkmanager --update
+         - yes | sdkmanager --licenses
+         - echo "y" | sdkmanager emulator
+         - if [ -n "$API" ]; then echo "y" | sdkmanager "system-images;android-$API;default;$EABI" ; fi
+         - if [ -n "$API" ]; then echo no | avdmanager create avd --force -n test-api-$API -k "system-images;android-$API;default;$EABI" ; fi
+       script: bin/test android
