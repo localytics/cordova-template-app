@@ -1,8 +1,0 @@
-{
-    "Localytics": {
-        "name": "Localytics",
-        "type": "podspec",
-        "spec": "~> 5.4",
-        "count": 1
-    }
-}

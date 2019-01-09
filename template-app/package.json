@@ -10,10 +10,7 @@
     "author": "Apache Cordova Team",
     "license": "Apache-2.0",
     "cordova": {
-        "platforms": [
-            "ios",
-            "android"
-        ],
+        "platforms": [],
         "plugins": {
             "cordova-plugin-whitelist": {},
             "com.localytics.phonegap.LocalyticsPlugin": {},

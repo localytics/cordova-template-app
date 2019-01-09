@@ -34,6 +34,4 @@
     </platform>
     <plugin name="com.localytics.phonegap.LocalyticsPlugin" spec="../../localytics-cordova" />
     <plugin name="cordova-plugin-device" spec="https://github.com/apache/cordova-plugin-device" />
-    <engine name="ios" spec="^4.5.5" />
-    <engine name="android" spec="^7.1.4" />
 </widget>
