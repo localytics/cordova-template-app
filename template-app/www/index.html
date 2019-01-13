@@ -28,14 +28,14 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Localytics Test</title>
     </head>
-    <div>
+    <body>
         <div class="app">
             <h1>Localytics Debug</h1>
 
@@ -200,7 +200,7 @@
                 <button id="btnGetIdentifier" class="localytics_button get_identifier">Get Identifier</button>
                 <hr class="hr_break">
 
-                <input id="outputCustomerId" type="text" value="" readonly>
+                <input id="outputCustomerId" type="text" value="" size="36" readonly>
                 <button id="btnGetCustomerId" class="localytics_button get_customer_id">Get Customer Id</button>
                 <hr class="hr_break">
             <br><br>
@@ -329,6 +329,10 @@
                 <br><br>
                 output: <textarea id="outputMessagingListener" type="text" value="" style="width:300px;height:100px" readonly></textarea><br>
                 <hr class="hr_break">
+                <button id="btnSetCTAListener" class="localytics_button set_cta_listener">Set CTA Listener</button>
+                <br><br>
+                output: <textarea id="outputCTAListener" type="text" value="" style="width:300px;height:100px" readonly></textarea><br>
+                <hr class="hr_break">
                 <button id="btnSetLocationListener" class="localytics_button set_location_listener">Set Location Listener</button>
                 <br><br>
                 output: <textarea id="outputLocationListener" type="text" value="" style="width:300px;height:100px" readonly></textarea><br>
@@ -346,10 +350,10 @@
                 output: <input id="outputLoggingEnabled" type="text" value="" readonly><br>
                 <button id="btnGetLoggingEnabled" class="localytics_button get_logging_enabled">Get</button>
                 <hr class="hr_break">
-                Install Id: <input id="outputInstallId" type="text" value="" readonly><br>
+                Install Id: <input id="outputInstallId" type="text" value="" size="45" readonly><br>
                 <button id="btnGetInstallId" class="localytics_button get_install_id">Get</button>
                 <hr class="hr_break">
-                App Key: <input id="outputAppKey" type="text" value="" readonly><br>
+                App Key: <input id="outputAppKey" type="text" value="" size="45" readonly><br>
                 <button id="btnGetAppKey" class="localytics_button get_appkey">Get</button>
                 <hr class="hr_break">
                 Library Ver.: <input id="outputLibraryVersion" type="text" value="" readonly><br>
@@ -370,7 +374,7 @@
                     <option value="1">Opt In</option>
                 </select>
                 <br>
-                Customer ID: <input id="inputCustomerIdPrivacy" type="text" value="customerId">
+                Customer ID: <input id="inputCustomerIdPrivacy" type="text" size="45" value="customerId">
                 <br>
                 <button id="btnPrivacyOptOut" class="localytics_button set_logging_enabled">Set Opt Out</button>
                 <button id="btnSetCustomerIdPrivacy" class="localytics_button set_identifier">Set Customer Id and Opt out</button>

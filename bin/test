@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ANDROID_HOME/tools/lib
+mkdir ~/.ssh
+echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+cd ..
+git clone https://github.com/localytics/localytics-cordova.git
+cd cordova-template-app
+
+echo "First argument we received is: $1"
+case "$1" in
+ios)
+   pod repo update
+
+   set -e
+   pwd
+   ls 
+   npm --version
+   echo "....."
+
+   npm install -g cordova
+   cordova -version
+
+   cd template-app
+   npm install
+   npm install localytics-cordova
+   npm i cordova-plugin-device
+   npm i cordova-plugin-whitelist
+   npm upgrade
+     
+   cordova platform ls
+   cordova platform rm browser
+   cordova platform rm ios
+   cordova platform rm android
+   cordova platform add ios
+   cordova build ios
+#cd platforms/ios 
+#xcodebuild -workspace LocalyticsSample.xcworkspace -scheme LocalyticsSample -sdk iphonesimulator12.1
+
+;;
+android)
+if [ -d "$HOME/.nvm" ]; then
+export NVM_DIR=$HOME/.nvm;
+source $HOME/.nvm/nvm.sh
+fi
+  echo Install NPM
+       nvm install 8.1.2
+       nvm use 8.1.2
+       npm install npm@6.5.0
+       npm install -g cordova
+       cd template-app
+       npm install
+       npm install localytics-cordova
+       npm i cordova-plugin-device
+       npm i cordova-plugin-whitelist
+       npm upgrade
+     
+       cordova platform ls
+       cordova platform rm browser
+       cordova platform rm ios
+       cordova platform rm android
+       cordova platform add android
+       cordova build android
+;;
+*)
+ echo "Unknown first argument"
+ exit 1
+esac

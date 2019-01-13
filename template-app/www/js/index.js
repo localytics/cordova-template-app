@@ -22,25 +22,41 @@ var app = {
 
     // Application Constructor
     initialize: function() {
-        this.bindEvents();
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
-    // Bind Event Listeners
+
+    // deviceready Event Handler
     //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
+    onDeviceReady: function() {
+        app.outputDebug(' onDeviceReady Begin');
+        this.receivedEvent('deviceready');
+        app.outputDebug(' onDeviceReady event processed');
+
+        Localytics.setLoggingEnabled(true);
+        app.outputDebug(' onDeviceReady End');
     },
 
-    onDeviceReady: function() {
-        Localytics.setLoggingEnabled(true);
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+       // var parentElement = document.getElementById(id);
+       // var listeningElement = parentElement.querySelector('.listening');
+       // var receivedElement = parentElement.querySelector('.received');
 
+       // listeningElement.setAttribute('style', 'display:none;');  receivedElement.setAttribute('style', 'display:block;');
+        app.outputDebug('Received Event: ' + id);
         document.getElementById("btnIntegrate").addEventListener("click", app.onIntegrate);
         document.getElementById("btnAutoIntegrate").addEventListener("click", app.onAutoIntegrate);
-
-        app.outputDebug(' onDeviceReady ');
+        
+        app.setupListeners();
     },
-
+    //ios
+    appKeyIOS : "36a67f27a597f8b391e6ba5-14b11240-c640-11e3-99ae-005cf8cbabd8",
+    appKeyAndroid : "f737ce58a68aea90b4c79fc-0bc951b0-b42b-11e3-429f-00a426b17dd8",
+    getAppKey : function() {
+      return device.platform === "iOS" ? app.appKeyIOS : app.appKeyAndroid;
+    },
     onIntegrate: function () {
         document.addEventListener("resume", app.onResume, false);
         document.addEventListener("pause", app.onPause, false);
@@ -48,7 +64,9 @@ var app = {
             "ll_great_network_upload_interval_seconds": 10,
             "ll_decent_network_upload_interval_seconds": 30,
             "ll_bad_network_upload_interval_seconds": 90 }
-        Localytics.integrate("YOUR-LOCALYTICS-APP-KEY", options);
+        Localytics.setOption("ll_app_key", app.getAppKey());
+        // The below call doesnt work on android
+        Localytics.integrate(app.getAppKey(), options);
         Localytics.openSession();
         Localytics.upload();
 
@@ -60,17 +78,39 @@ var app = {
             "ll_great_network_upload_interval_seconds": 10,
             "ll_decent_network_upload_interval_seconds": 30,
             "ll_bad_network_upload_interval_seconds": 90 }
-        Localytics.autoIntegrate("YOUR-LOCALYTICS-APP-KEY", options);
+        Localytics.setOption("ll_app_key", app.getAppKey());
+        // The below call doesnt work on android
+        Localytics.autoIntegrate(app.getAppKey(), options);
         Localytics.openSession();
 
         app.onIntegrationComplete();
     },
 
     onIntegrationComplete: function() {
-        document.getElementById("integrationContainer").style["display"] = "none"
-        document.getElementById("controlContainer").style["display"] = ""
-        app.setupListeners();
+//        alert("Integration Complete");
+        document.getElementById("integrationContainer").style["display"] = "none";
+        document.getElementById("controlContainer").style["display"] = "";
+        app.fetchValuesOnIntegrationComplete();
     },
+
+    fetchDismissButtonLocation : function() {
+    	var outputElement = document.getElementById("outputDismissButtonLocation");
+	Localytics.getInAppMessageDismissButtonLocation(
+	function success(result) {
+                        outputElement.value = result;
+	});
+    },
+
+    fetchValuesOnIntegrationComplete : function() {
+      app.fetchCustomerId();
+      app.onGetInstallId();
+      app.onLoggingEnabledAction();
+      app.onGetAppKey();
+      app.onGetLibraryVersion();
+      app.fetchPushToken();
+      app.fetchTestModeEnabled();
+      app.fetchDismissButtonLocation();
+    }, 
 
     setupListeners: function() {
         // Integration
@@ -146,6 +186,7 @@ var app = {
         // Callbacks / Listeners
         document.getElementById("btnSetAnalyticsListener").addEventListener("click", app.onListenersAction);
         document.getElementById("btnSetMessagingListener").addEventListener("click", app.onListenersAction);
+        document.getElementById("btnSetCTAListener").addEventListener("click", app.onListenersAction);
         document.getElementById("btnSetLocationListener").addEventListener("click", app.onListenersAction);
 
         // Developer
@@ -343,7 +384,7 @@ var app = {
     },
 
     onUserInfoAction: function (ev) {
-        if (ev.currentTarget) {
+        if (ev && ev.currentTarget) {
             var targetId = ev.currentTarget.id;
 
             var logString = "target: " + targetId;
@@ -398,12 +439,7 @@ var app = {
                     logString += ", key: " + key + ", function: getIdentifier";
                     break;
                 case "btnGetCustomerId":
-                    var outputElement = document.getElementById("outputCustomerId");
-                    Localytics.getCustomerId(
-                        function success(value) {
-                            outputElement.value = value;
-                            app.outputDebug(' getCustomerId: value - ' + value + ' ');
-                        });
+		    app.fetchCustomerId(function(value) {app.outputDebug(' getCustomerId: value - ' + value + ' ');});
                     logString += ", function: getCustomerId";
                     break;
                 default:
@@ -414,22 +450,36 @@ var app = {
             app.outputDebug(' onUserInfoAction: ' + logString + ' ')
         }
     },
+    fetchCustomerId : function(onCustomerId) {
+        var outputElement = document.getElementById("outputCustomerId");
+        Localytics.getCustomerId(function success(value) {
+            outputElement.value = value;
+            if (onCustomerId) { onCustomerId(value); }
+        });
+    },
 
-    onLoggingEnabledAction: function (ev) {
-        if (ev.currentTarget) {
-            var targetId = ev.currentTarget.id;
-            if (targetId == "btnSetLoggingEnabled") {
-                var list = document.getElementById("listLoggingEnabled");
-                var value = list.options[list.selectedIndex].text;
-                Localytics.setLoggingEnabled(value == "true");
-            } else {
+    fetchLogging : function() {
                 var outputElement = document.getElementById("outputLoggingEnabled");
                 Localytics.isLoggingEnabled(
                     function success(result) {
                         outputElement.value = result;
                     });
+    },
+
+    onLoggingEnabledAction: function (ev) {
+        if (ev && ev.currentTarget) {
+            var targetId = ev.currentTarget.id;
+            if (targetId == "btnSetLoggingEnabled") {
+                var list = document.getElementById("listLoggingEnabled");
+                var value = list.options[list.selectedIndex].text;
+                Localytics.setLoggingEnabled(value == "true");
+                window.setTimeout(app.fetchLogging, 500);
+            } else {
+              app.fetchLogging();
             }
-        }
+        } else {
+              app.fetchLogging();
+        } 
     },
 
     onRegisterPush: function (ev) {
@@ -453,36 +503,49 @@ var app = {
         }
     },
 
-    onPushTokenAction: function (ev) {
-        if (ev.currentTarget) {
-            var targetId = ev.currentTarget.id;
-            if (targetId == "btnSetPushToken") {
-                var value = document.getElementById("inputPushToken").value || null;
-                Localytics.setPushToken(value);
-            } else {
+    fetchPushToken : function() {
                 var outputElement = document.getElementById("outputPushToken");
                 Localytics.getPushToken(
                     function success(result) {
                         outputElement.value = result;
                     });
-            }
-        }
     },
 
-    onTestModeEnabledAction: function (ev) {
-        if (ev.currentTarget) {
+    onPushTokenAction: function (ev) {
+        if (ev && ev.currentTarget) {
             var targetId = ev.currentTarget.id;
-            if (targetId == "btnSetTestModeEnabled") {
-                var list = document.getElementById("listTestMode");
-                var value = list.options[list.selectedIndex].text;
-                Localytics.setTestModeEnabled(value == "true");
+            if (targetId == "btnSetPushToken") {
+                var value = document.getElementById("inputPushToken").value || null;
+                Localytics.setPushToken(value);
+              	window.setTimeout(app.fetchPushToken, 500);
             } else {
+              app.fetchPushToken();
+            }
+        } else {
+              app.fetchPushToken();
+        }
+    },
+    fetchTestModeEnabled : function() {
                 var outputElement = document.getElementById("outputTestModeEnabled");
                 Localytics.isTestModeEnabled(
                     function success(result) {
                         outputElement.value = result;
                     });
+    },
+
+    onTestModeEnabledAction: function (ev) {
+        if (ev && ev.currentTarget) {
+            var targetId = ev.currentTarget.id;
+            if (targetId == "btnSetTestModeEnabled") {
+                var list = document.getElementById("listTestMode");
+                var value = list.options[list.selectedIndex].text;
+                Localytics.setTestModeEnabled(value == "true");
+              	window.setTimeout(app.fetchTestModeEnabled, 500);
+            } else {
+              app.fetchTestModeEnabled();
             }
+        } else {
+              app.fetchTestModeEnabled();
         }
     },
     onMarketingAction: function (ev) {
@@ -501,11 +564,7 @@ var app = {
                 var value = list.options[list.selectedIndex].value;
                 Localytics.setInAppMessageDismissButtonLocation(value);
             } else if (targetId == "btnGetDismissButtonLocation") {
-                var outputElement = document.getElementById("outputDismissButtonLocation");
-                Localytics.getInAppMessageDismissButtonLocation(
-                    function success(result) {
-                        outputElement.value = result;
-                    });
+                app.fetchDismissButtonLocation();
             } else if (targetId == "btnTriggerInApp") {
                 var triggerName = document.getElementById("inputTriggerInAppName").value;
                 // Note: attributes must match event's attribute, so keep it simple
@@ -573,6 +632,11 @@ var app = {
             } else if (targetId == "btnSetMessagingListener") {
                 var outputElement = document.getElementById("outputMessagingListener");
                 Localytics.setMessagingListener(function success(value) {
+                    outputElement.value = JSON.stringify(value);
+                });
+            } else if (targetId == "btnSetCTAListener") {
+                var outputElement = document.getElementById("outputCTAListener");
+                Localytics.setCallToActionListener(function success(value) {
                     outputElement.value = JSON.stringify(value);
                 });
             } else if (targetId == "btnSetLocationListener") {
@@ -682,6 +746,7 @@ var app = {
             console.log("************** " +message+" **************");
         }
     },
+
 };
 
 app.initialize();

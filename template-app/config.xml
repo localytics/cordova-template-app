@@ -11,6 +11,7 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
+    <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -18,15 +19,19 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="*" /> 
+    <allow-navigation href="*" />
     <platform name="android">
+        <preference name="android-minSdkVersion" value="17" />
+        <preference name="android-targetSdkVersion" value="27" />
+        <preference name="android-compileSdkVersion" value="27" />
         <allow-intent href="market:*" />
         <framework src="com.google.android.gms:play-services-location:9.8.0" />
     </platform>
     <platform name="ios">
+        <preference name="BackupWebStorage" value="local" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <engine name="android" spec="~6.3.0" />
-    <engine name="ios" spec="^4.5.4" />
+    <plugin name="com.localytics.phonegap.LocalyticsPlugin" spec="../../localytics-cordova" />
+    <plugin name="cordova-plugin-device" spec="https://github.com/apache/cordova-plugin-device" />
 </widget>
