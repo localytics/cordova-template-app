@@ -44,8 +44,8 @@ matrix:
          - echo "y" | sdkmanager emulator
          -  rm -rf ~/.android/avd/
          - echo "y" | sdkmanager --update
-         - yes | sdkmanager --licenses
+         - yes | sdkmanager --licenses || true
          - echo "y" | sdkmanager emulator
          - if [ -n "$API" ]; then echo "y" | sdkmanager "system-images;android-$API;default;$EABI" ; fi
-         - if [ -n "$API" ]; then echo no | avdmanager create avd --force -n test-api-$API -k "system-images;android-$API;default;$EABI" ; fi
+         - if [ -n "$API" ]; then echo no | android create avd --force -n test-api-$API -t android-$API ; fi
        script: bin/test android
